@@ -30,7 +30,17 @@ public class HotelTest {
         hotel.checkGuestOutBedroom(guest, bedroom);
         assertEquals(1, bedroom.checkCurrentOccupancy());
     }
+    @Test
+    public void canCreateBooking(){
+        Booking booking = hotel.createBooking(3,bedroom);
+        assertEquals(3,booking.getNightsBooked());
+    }
 
+    @Test
+    public void canCreateTotalBill(){
+        Booking booking = hotel.createBooking(3,bedroom);
+        assertEquals(450, hotel.createTotalBill(booking));
+    }
 
 
 }
