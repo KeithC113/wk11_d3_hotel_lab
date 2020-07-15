@@ -9,11 +9,13 @@ public class BedroomTest {
 
     private Bedroom bedroom;
     private Guest guest;
+    private Guest guest2;
 
     @Before
     public void before(){
         bedroom = new Bedroom (1,6, "double",150);
         guest = new Guest ("Joe");
+        guest2 = new Guest ("Keith");
     }
 
     @Test
@@ -38,7 +40,14 @@ public class BedroomTest {
     public void canAddGuestToRoom(){
         bedroom.addGuestToRoom(guest);
         assertEquals (1,bedroom.checkCurrentOccupancy());
+    }
 
+    @Test
+    public void canRemoveGuestFromRoom(){
+        bedroom.addGuestToRoom(guest);
+        bedroom.addGuestToRoom(guest2);
+        bedroom.removeGuestFromRoom(guest);
+        assertEquals(1, bedroom.checkCurrentOccupancy());
     }
 
 

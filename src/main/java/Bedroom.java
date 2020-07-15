@@ -39,4 +39,8 @@ public class Bedroom {
     public int checkCurrentOccupancy() {
         return occupants.size();
     }
+
+    public void removeGuestFromRoom(Guest guest) {
+        occupants.remove(guest);
+    }
 }
